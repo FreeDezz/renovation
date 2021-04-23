@@ -1,0 +1,316 @@
+@import "src/utils/variables";
+
+
+.fixed {
+  background-color: $color_blue !important;
+}
+
+.fixed.head {
+  max-height: 70px;
+  padding-top: 0;
+  transition: all ease-out 0.2s;
+
+  .container_nav {
+    .logo {
+      max-width: 60px;
+      transition: all ease-out 0.2s;
+    }
+    .spaces {
+      display: flex;
+      flex: 1;
+    }
+    .nav ul {
+      .nav_item {
+        .subclass_nav {
+          margin-top: 10px;
+        }
+
+        a {
+          font-size: 19px;
+        }
+
+        .btn {
+          font-size: 22px !important;
+        }
+      }
+    }
+  }
+}
+
+.fixed_remove {
+  position: relative !important;
+}
+
+.head {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  max-width: 100vw;
+  padding-top: 10px;
+  max-height: 100px;
+  align-items: center;
+  z-index: 2000;
+  transition: all ease-out 0.2s;
+  background: rgb(253, 187, 45);
+  background: linear-gradient(0deg, rgba(253, 187, 45, 0) 0%, rgba(34, 42, 60, 1) 100%);
+
+  .container_nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1770px;
+    align-items: center;
+    margin: 0 auto;
+
+    /*LOGO*/
+    .logo {
+      width: 20%;
+      max-width: 90px;
+      padding-left: 35px;
+      transition: all ease-out 0.2s;
+
+      svg {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+
+
+
+    /*navigation*/
+    .nav {
+      width: 80%;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 10px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+
+        .logo_mobile {
+          display: none;
+          padding: 20px;
+        }
+
+        .nav_item {
+          width: auto;
+          text-align: center;
+          position: relative;
+          list-style-type: none;
+          padding: 20px;
+
+          a {
+            color: #FFFFFF;
+            text-decoration: none;
+            text-transform: uppercase;
+            width: 100%;
+            font-weight: 700;
+            font-size: 20px;
+            transition: all ease-out 0.3s;
+            display: flex;
+
+            span {
+              font-family: 'fontello';
+              font-size: 40px;
+              color: $main_color;
+              transition: all ease-out 0.3s;
+            }
+
+            p {
+              margin: 8px 0 0;
+            }
+          }
+
+          .subclass_nav {
+            position: absolute;
+            margin-top: 10px;
+            border: 2px solid $color_blue;
+            left: calc(50% - 650px);
+            opacity: 0;
+            display: none;
+            width: auto;
+            padding:0;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: all ease-out 0.2s;
+            z-index: 999999;
+
+            li {
+              list-style-type: none;
+              white-space: nowrap;
+              padding:35px !important;
+              text-align: left;
+              display: flex;
+              flex-direction: column;
+              border-right: 1px solid #111111;
+
+              a {
+                text-transform: none;
+                font-weight: 400;
+                color: $color_blue;
+                display: flex;
+                flex-direction: column;
+                width: 300px;
+                span {
+                  font-size: 80px;
+                }
+                p {
+                  white-space: normal;
+                }
+              }
+            }
+          }
+          .subclass_nav:before {
+            content: "";
+            border: 9px solid transparent;
+            position: absolute;
+            bottom: 100%;
+            left: 56%;
+            border-bottom-color: #eee;
+            margin-right: -1px;
+            z-index: 12;
+          }
+
+        }
+
+        .nav_item:hover {
+          color: $main_color!important;
+          transition: all ease-out 0.3s;
+        }
+
+        a:hover {
+          color: $main_color!important;
+          transition: all ease-out 0.3s;
+
+          span {
+            color: $color_blue;
+            transition: all ease-out 0.3s;
+          }
+        }
+
+        .nav_item:hover .subclass_nav {
+          animation-name: swingdown;
+          animation-duration: 0.2s;
+          animation-timing-function: ease;
+          opacity: 1;
+          display: flex;
+        }
+        @keyframes swingdown {
+          0% {
+            opacity: .5;
+            transform: rotateX(50deg);
+
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+        .nav_item:last-child {
+          padding: 9px;
+        }
+      }
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 9px 2px;
+      cursor: pointer;
+      margin-right: 35px;
+    }
+
+    .burger-item {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: white;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .burger-item:before,
+    .burger-item:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      position: absolute;
+      left: 0;
+      z-index: 1;
+    }
+
+    .burger-item:before {
+      top: -8px;
+    }
+
+    .burger-item:after {
+      bottom: -8px;
+    }
+
+
+    /*/navigation*/
+  }
+
+
+}
+/*animation*/
+._anim-item {
+  opacity: 0;
+}
+.active_animation {
+  opacity: 1;
+}
+.animation_delay.active_animation{
+  animation-duration: 0.6s;
+}
+.active_animation {
+  animation-name: animation_item_left;
+  animation-duration: 0.4s;
+  opacity: 1;
+  animation-timing-function: ease;
+}
+.active_animation._anim-item._anim-item_right {
+  animation-name: animation_item_right;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+}
+.active_animation._anim-item._anim-item_top {
+  animation-name: animation_item-top;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+}
+
+@keyframes animation_item_left {
+  0% {
+    transform: translate(-150%, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes animation_item_right {
+  0% {
+    transform: translate(150%, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes animation_item-top {
+  0% {
+    transform: translate(0px, 150%);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+
